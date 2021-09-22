@@ -1,13 +1,30 @@
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+let numberOfFilms;
+
+function start(){
+	numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+	while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+		numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+	}
+}
+start();
 
 const personalMovieDB ={
 	count: numberOfFilms,
 	movies:{},
 	actors:{},
 	genres:[],
-	privat: false,
-};	  
-for (let i = 0; i < 2 ; i++){
+	privat: false
+};
+
+function showMyDB(hidden){
+	if (!hidden){
+		console.log(personalMovieDB);
+	}
+}
+showMyDB(personalMovieDB.privat);
+  
+function rememberMyFilms(){
+	for (let i = 0; i < 2; i++){
 	const a = prompt('Один из последних просмотренных фильмов?'),
           b = prompt('На сколько оцениваете его?'); 
 		  if (a != null && b != null && a != '' && b != '' && a.length < 50){
@@ -17,8 +34,13 @@ for (let i = 0; i < 2 ; i++){
 			  console.log('error');
 			  i--;
 		  }
-};
-if (personalMovieDB.count < 10){
+   }
+}
+
+rememberMyFilms();
+
+function detectPersonalLevel(){
+	if (personalMovieDB.count < 10){
 	console.log('Просмотрено довольно мало фильмов');
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
 	console.log('Вы классический зритель');
@@ -27,6 +49,9 @@ if (personalMovieDB.count < 10){
 } else{
 	console.log('Ошибка');
 }
+}
+
+detectPersonalLevel();
 
 
 console.log(personalMovieDB); 
