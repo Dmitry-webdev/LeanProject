@@ -14,12 +14,13 @@ const options = {
 		console.log('Test');
 	}   
 };
+options.makeTest(); // запускаем созданный метод в объекте options
+
 
 // Деструктуризация объекта
 const {border, bg} = options.colors; //вытаскиваем отдельные элементы в переменную
 console.log(border);
 
-options.makeTest(); // запускаем созданный метод в объекте options
 
  console.log(Object.keys(options).length); // кол-во элементов в объекте при помощи встроенного метода
  //	console.log(options.name);
