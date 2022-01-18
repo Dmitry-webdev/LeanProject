@@ -33,13 +33,13 @@ let answ = +prompt("Hello", "");
 // 1)
 let switcher = null;
 
-if(switcher){
+if (switcher) {
 	console.log('Working...');
 }
 
 switcher = 1;
 
-if(switcher){
+if (switcher) {
 	console.log('Working...');
 }
 
